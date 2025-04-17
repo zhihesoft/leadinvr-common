@@ -3,13 +3,13 @@ import { CommonError } from "./common.error";
 export type FailedCallback = () => string | Error;
 
 export class Failed {
-    static on(condition: unknown, callback: FailedCallback | string | Error) {
+    static on(condition: unknown, callback: FailedCallback | string) {
         if (!condition) {
             return;
         }
 
         let resp: string | Error;
-        if (typeof callback === "string" || callback instanceof Error) {
+        if (typeof callback === "string") {
             resp = callback;
         } else {
             resp = callback();
@@ -22,7 +22,7 @@ export class Failed {
         }
     }
 
-    static onFalsy(condition: unknown, callback: FailedCallback | string | Error): asserts condition {
+    static onFalsy(condition: unknown, callback: FailedCallback | string): asserts condition {
         Failed.on(!condition, callback);
     }
 
