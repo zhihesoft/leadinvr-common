@@ -1,0 +1,33 @@
+{
+    "name": "@leadinvr/common",
+    "version": "1.0.0",
+    "description": "common library for nestjs",
+    "main": "./dist/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 0",
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zhihesoft/leadinvr-common.git"
+    },
+    "keywords": [
+        "nestjs",
+        "common"
+    ],
+    "author": "Stanley",
+    "license": "Apache-2.0",
+    "files": [
+        "dist/**/*"
+    ],
+    "bugs": {
+        "url": "https://github.com/zhihesoft/leadinvr-common/issues"
+    },
+    "homepage": "https://github.com/zhihesoft/leadinvr-common#readme",
+    "devDependencies": {
+        "@types/node": "^22.14.1"
+    },
+    "dependencies": {
+        "bcryptjs": "^3.0.2"
+    }
+}
