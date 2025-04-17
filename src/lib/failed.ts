@@ -3,7 +3,7 @@ import { CommonError } from "./common.error";
 export type FailedCallback = () => string | Error;
 
 export class Failed {
-    static on(condition: unknown, callback: FailedCallback | string) {
+    static on(condition: unknown, callback: FailedCallback | string | Error) {
         if (!condition) {
             return;
         }
@@ -22,7 +22,7 @@ export class Failed {
         }
     }
 
-    static onFalsy(condition: unknown, callback: FailedCallback | string): asserts condition {
+    static onFalsy(condition: unknown, callback: FailedCallback | string | Error): asserts condition {
         Failed.on(!condition, callback);
     }
 
