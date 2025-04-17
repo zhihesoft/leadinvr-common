@@ -15,6 +15,7 @@ export function replaceString(value: string, ...pairs: string[][]): string {
 
 /**
  * Split a string by multiple delimiters
+ * This function replaces all occurrences of the specified delimiters with a unique string and then splits the string by that unique string.
  * @param value
  * @param splitter
  * @returns
@@ -24,10 +25,12 @@ export function splitString(value: string, ...splitter: string[]): string[] {
         return [];
     }
 
-    const realSplitter = `^|^|^|^`;
-    const temp = replaceString(value, ...splitter.map(s => [s, realSplitter]));
-    const ret = temp.split(realSplitter);
-    return ret.map(s => s.trim());
+    let arr = [value];
+
+    for (const s of splitter) {
+        arr = arr.flatMap(v => v.split(s));
+    }
+    return arr.map(s => s.trim());
 }
 
 /**
