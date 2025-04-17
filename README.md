@@ -71,6 +71,34 @@ export function randomString(length: number): string'
 export function normalizeNumber(value: number, min: number, max: number): number;
 ```
 
+## String utils
+
+-   Replace all in string
+
+```ts
+/**
+ * Replace all occurrences of a string in another string with a new string.
+ * This function uses the String.prototype.replaceAll method to replace all occurrences of a substring with a new string.
+ * @param value
+ * @param pairs
+ * @returns
+ */
+export function replaceString(value: string, ...pairs: string[][]): string;
+```
+
+-   Split string
+
+```ts
+/**
+ * Split a string by multiple delimiters
+ * This function replaces all occurrences of the specified delimiters with a unique string and then splits the string by that unique string.
+ * @param value
+ * @param splitter
+ * @returns
+ */
+export function splitString(value: string, ...splitter: string[]): string[];
+```
+
 -   Unescape HTML entity
 
 ```ts

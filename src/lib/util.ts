@@ -52,18 +52,3 @@ export function normalizeNumber(value: number, min: number, max: number): number
     }
 }
 
-/**
- * Unescape HTML entities in a string
- * This function replaces HTML entities with their corresponding characters.
- * @param htmlEntity String to unescape
- * @returns Unescaped string
- */
-export function unescapeHTML(htmlEntity: string): string {
-    return htmlEntity
-        .replace(/&amp;/g, "&")
-        .replace(/&lt;/g, "<")
-        .replace(/&gt;/g, ">")
-        .replace(/&#39;/g, "'")
-        .replace(/&#xa;/g, "\n")
-        .replace(/&quot;/g, '"');
-}
