@@ -1,4 +1,3 @@
-import * as crypto from "crypto";
 
 /**
  * Bypass TypeScript error for unused parameters
@@ -15,22 +14,11 @@ export function forgot(...parameters: unknown[]) {}
 export async function waitForSeconds(seconds: number): Promise<void> {
     return new Promise(resolve => {
         setTimeout(() => {
-            resolve(undefined);
+            resolve();
         }, seconds * 1000);
     });
 }
 
-/**
- * Generate a random string of given length
- * @param length Length of the string to generate
- * @returns Random string
- */
-export function randomString(length: number): string {
-    return crypto
-        .randomBytes(length / 2)
-        .toString("hex")
-        .slice(0, length);
-}
 
 /**
  * Normalize a number to be within a specified range. [min, max]
@@ -51,4 +39,3 @@ export function normalizeNumber(value: number, min: number, max: number): number
         return value;
     }
 }
-
