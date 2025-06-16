@@ -1,15 +1,13 @@
-import { Injectable } from "@nestjs/common";
 import { compare, hash } from "bcryptjs";
 import { createHash, createHmac } from "crypto";
 
-@Injectable()
-export class CryptoService {
+export namespace CryptoUtils {
     /**
      * User bcrytp to hash password
      * @param password
      * @returns hashed password
      */
-    async bcryptHash(password: string): Promise<string> {
+    export async function bcryptHash(password: string): Promise<string> {
         return await hash(password, 10);
     }
 
@@ -19,7 +17,7 @@ export class CryptoService {
      * @param hashedPassword hashed password (store in db)
      * @returns identical return true, otherwise return false
      */
-    async bcryptCompare(password: string, hashedPassword: string): Promise<boolean> {
+    export async function bcryptCompare(password: string, hashedPassword: string): Promise<boolean> {
         return compare(password, hashedPassword);
     }
 
@@ -28,7 +26,7 @@ export class CryptoService {
      * @param str
      * @returns
      */
-    md5(str: string): string {
+    export function md5(str: string): string {
         return createHash("md5").update(str).digest("hex");
     }
 
@@ -38,7 +36,7 @@ export class CryptoService {
      * @param secret
      * @returns
      */
-    hmacSHA256(str: string, secret: string): string {
+    export function hmacSHA256(str: string, secret: string): string {
         return createHmac("sha256", secret).update(str).digest("base64");
     }
 }
